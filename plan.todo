@@ -1,0 +1,15 @@
+Scope of work
+
+- Authentication and encryption
+  - User credentials
+  - Login/sign-up
+
+- Storage of user information
+  - Hiring or Freelancing
+  - Profile picture
+  - User details: Phone number, names, email, ...
+
+- Session management
+- Password reset(Forgot email)
+- Freelancers' access to hirers
+- Hirers' access to freelancers
