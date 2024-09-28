@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Freelancers',
+    'Hirers'
 ]
 
 MIDDLEWARE = [
@@ -75,8 +77,12 @@ WSGI_APPLICATION = 'freelancerCove.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'mysql',
+        'USER': 'kennyagz',
+        'PASSWORD': 'IamKen404',
+        'HOST': 'db-1.czi6g8eggmcx.eu-north-1.rds.amazonaws.com',
+        'PORT': '3306'
     }
 }
 
