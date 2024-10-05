@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Freelancers',
-    'Hirers'
+    'Hirers',
+    'Landing',
 ]
 
 MIDDLEWARE = [
@@ -79,9 +80,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'mysql',
-        'USER': 'kennyagz',
-        'PASSWORD': 'IamKen404',
-        'HOST': 'db-1.czi6g8eggmcx.eu-north-1.rds.amazonaws.com',
+        'USER': 'ken',
+        'PASSWORD': '@Kennyaga', #'IamKen404',
+        'HOST': 'localhost', #'db-1.czi6g8eggmcx.eu-north-1.rds.amazonaws.com',
         'PORT': '3306'
     }
 }
