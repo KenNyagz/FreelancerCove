@@ -7,5 +7,5 @@ class freelancer(models.Model):
     lastName = models.CharField(max_length=255)
     phone_no = models.IntegerField(null=True)
     joined = models.DateField(default=timezone.now)
-    specialty = models.CharField(max_length=255)
-    technologies = models.CharField(max_length=255)
+    specialty = models.CharField(max_length=255, null=True)
+    technologies = models.CharField(max_length=255, null=True)
