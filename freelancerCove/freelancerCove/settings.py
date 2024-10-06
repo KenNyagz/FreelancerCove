@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'freelancerCove.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysql',
+        'NAME': 'freelance_cove',
         'USER': 'ken',
         'PASSWORD': '@Kennyaga', #'IamKen404',
         'HOST': 'localhost', #'db-1.czi6g8eggmcx.eu-north-1.rds.amazonaws.com',
