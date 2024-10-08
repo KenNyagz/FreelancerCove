@@ -6,11 +6,11 @@ from .models import Hirer
 
 def sign_up(request):
     '''sign_in view'''
-    return render(request, 'sign-up.html')
+    return render(request, 'h_sign-up.html')
 
 def login(request):
     '''login view'''
-    return render(request, 'login.html')
+    return render(request, 'h_login.html')
 
 @csrf_exempt # Disable CSRF protection -for testing
 def verify_signup(request):
