@@ -1,7 +1,9 @@
 from django.shortcuts import render
+from django.template import loader
 from django.views.decorators.csrf import csrf_exempt
+from django.db.utils import IntegrityError
 from django.contrib.auth.hashers import make_password
-from django.http import HttpResponseRedirect#redirect
+from django.http import HttpResponseRedirect, HttpResponse #redirect
 from .models import Hirer
 
 def sign_up(request):
@@ -18,7 +20,7 @@ def verify_signup(request):
     if request.method == 'POST':
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
-        email= redirect.POST['email']
+        email= request.POST['email']
         password = request.POST['password']
         hashed_password = make_password(password)
         # other fields to be prompted later on, into the app
@@ -29,8 +31,14 @@ def verify_signup(request):
                           email_address=email,
                           hashed_password=hashed_password
         )
-        new_hirer.save()
-        return HttpResponseRedirect('/hiring/login')
+        try:
+            new_hirer.save()
+            return HttpResponseRedirect('/hiring/login')
+        except IntegrityError:    # Email field is set to unique, hence any duplicate will tell
+            message = "User already exists(Hirer)"
+            template = loader.get_template('user_exists.html')
+            data = { "message" : message}
+            return HttpResponse(template.render(data, request))
     else:
         return "forbidden", 403
 

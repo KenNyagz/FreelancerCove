@@ -165,7 +165,7 @@ h1 {
 
 </head>
 <body translate=&quot;no&quot;>
-  <form autocomplete='off' class='form' action='/freelance/verify_signup' method='POST'>
+  <form autocomplete='off' class='form' action='verify_signup' method='POST'>
   <div class='control'>
     <h1>
       Sign Up
@@ -260,6 +260,7 @@ h1 {
     if (password !== confirm_password) {
       alert("Passwords do not match")
       event.preventDefault();
+      return;
     }
   })
 </script>
