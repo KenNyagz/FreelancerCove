@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freelance Jobs</title>
+    <link rel="stylesheet" href="../static/css/home.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Freelance Jobs</h1>
+        <div class="job-list">
+            {% if jobs %}
+                {% for job in jobs %}
+                    <div class="job-card">
+                        <h2>{{ job.title }}</h2>
+                        <p>{{ job.description }}</p>
+                        <p><strong>Budget:</strong> ${{ job.budget }}</p>
+                        <p><strong>Posted on:</strong> {{ job.posted_date }}</p>
+                        <!-- <a href="{% url 'job_detail' job.id %}" class="btn">View Details</a> -->
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No jobs available at the moment.</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

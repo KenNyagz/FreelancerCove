@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.template import loader
 from django.db.utils import IntegrityError
 from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import make_password, check_password
 from django.http import HttpResponseRedirect, HttpResponse #redirect
 from .models import freelancer
 
@@ -43,9 +43,18 @@ def verify_signup(request):
     else:
         return "forbidden", 403
 
+@csrf_exempt
 def verify_login(request):
     '''Function to handle user verification'''
-    pass
+    email = request.POST['email']
+    password = request.POST['password']
+    try:
+        user = freelancer.objects.get(email_address=email)
+        if not check_password(password, user.hashed_password):
+            return render(request, 'wrong_pwd.html')
+        return render(request, 'home.html')
+    except freelancer.DoesNotExist:
+        return render (request, "user_no_exist.html")
 
 def jobs_list(request):
     '''View to display available jobs for freelancer'''
